@@ -32,7 +32,7 @@ int main(void)
 			{
 				if (s < b && b < m)
 				{
-					putchar(i);
+					putchar(s);
 					putchar(b);
 					putchar(m);
 					if (!(s == '7' && b == '8' && m == '9'))
