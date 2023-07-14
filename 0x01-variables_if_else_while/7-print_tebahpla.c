@@ -7,22 +7,15 @@
  * You can only use `putchar` twice.
  * Return: 0
  */
-
 int main(void)
 {
-	int s;
+	char s;
 
-	for (s = 0; s < 10; s++)
+	for (s = 'z'; s >= 'a'; s--)
 	{
-		putchar(s + '0');
+		putchar(s);
 	}
 	putchar('\n');
 
 	return (0);
-}
-
-
-
-
-
 
