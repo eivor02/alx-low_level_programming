@@ -9,15 +9,15 @@
  * Description: Print all numbers of base 10, starting from 0.
  * Return: 0
  */
+
 int main(void)
 {
-	int S;
+	int num;
 
-	for (S = 0; S < 10; s++)
-	{
-		printf("%i", S);
-	}
-	putchar('\n');
+	for (num = 0; num < 10; num++)
+		printf("%d", num);
+
+	printf("\n");
 
 	return (0);
-
+}
