@@ -15,7 +15,7 @@ int main(void)
 
 	for (S = 0; S < 10; s++)
 	{
-		printf("%S", S);
+		printf("%i", S);
 	}
 	putchar('\n');
 
