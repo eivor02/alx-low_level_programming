@@ -13,7 +13,7 @@ while (letter <= 'z')
 putchar(letter);
 alpha++;
 if (letter == 'e' || letter == 'q')
-alpha++;
+letter++;
 }
 putchar('\n');
 return (0);
