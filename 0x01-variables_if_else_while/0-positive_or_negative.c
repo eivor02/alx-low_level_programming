@@ -4,7 +4,8 @@
 
 /**
  * main - main block
- * Description: Determine if a random number is positive, negative or zero and print it.
+ * Description: Determine if a random number is positive,
+ * negative or zero and print it.
  * Return: 0
  */
 
@@ -17,10 +18,10 @@ srand(time(0));
 n = rand() - RAND_MAX / 2;
 
 if (n > 0)
-		printf("%i is positive\n", n);
+		printf("%d is positive\n", n);
 	else if (n < 0)
-		printf("%i is negative\n", n);
+		printf("%d is negative\n", n);
 	else
-		printf("%i is zero\n", n);
+		printf("%d is zero\n", n);
 	return (0);
 }
