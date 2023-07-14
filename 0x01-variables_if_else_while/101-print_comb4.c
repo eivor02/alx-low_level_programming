@@ -48,7 +48,7 @@ int main(void)
 			b++;
 		}
 		b = '0';
-		i++;
+		s++;
 	}
 	putchar('\n');
 	return (0);
