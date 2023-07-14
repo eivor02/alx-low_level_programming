@@ -11,7 +11,7 @@ char letter = 'a';
 while (letter <= 'z')
 {
 putchar(letter);
-alpha++;
+letter++;
 if (letter == 'e' || letter == 'q')
 letter++;
 }
