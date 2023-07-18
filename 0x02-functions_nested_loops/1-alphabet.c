@@ -7,8 +7,9 @@
 #include "main.h"
 
 /**
- * print_alphabet - print "a to z" in lowercase,followed by a new line. 
- * Return: always success
+ * Description: Write program to print alphabet in lowercase using _putchar 
+ * followed by a new line.
+ * Return: Always 0.
  */
 
 void print_alphabet(void)
