@@ -1,9 +1,16 @@
+/*
+ * File: 0-putchar.c
+ * Auth: Saif Eddine belhaj
+ *
+ */
+
+
 #include "main.h"
 
 /**
  * main - Prints "_putchar" followed by a new line.
  *
- * Return: Always 0.
+ * Return: Alwys 0.
  */
 
 
