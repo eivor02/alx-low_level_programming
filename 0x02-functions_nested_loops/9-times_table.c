@@ -6,7 +6,7 @@
 
 #include "main.h"
 /**
- * times_table -  a function that prints the 9 times table, starting with 0
+ * times_table - s function that prints the 9 times table, starting with 0
  *
  * Return: times table
  */
@@ -42,7 +42,7 @@ void times_table(void)
 			}
 			b++;
 		}
-		a++;
+		s++;
 		_putchar('\n');
 	}
 }
