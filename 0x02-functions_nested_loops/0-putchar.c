@@ -1,9 +1,3 @@
-/*
- * File: 0-putchar.c
- * Auth: Saif Eddine belhaj
- *
- */
-
 #include "main.h"
 
 /**
