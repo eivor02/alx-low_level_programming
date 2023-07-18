@@ -7,6 +7,7 @@
 #include "main.h"
 
 /**
+ * print_sign - check if n is +, - or 0
  * Return: 1 if the number is > than zero,
  * @n: The number of which the sign will be printed.
  *
@@ -17,7 +18,7 @@
 int print_sign(int n)
 
 {
-	if (n > 0)
+i	if (n > 0)
 	{
 		_putchar(43);
 		return (1);
