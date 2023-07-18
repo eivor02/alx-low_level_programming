@@ -12,7 +12,7 @@
 /**
  * print_to_98 - prints all numbers from n to 98,
  * followed by a new line
- * @a: int type
+ * @n: int type
  * Return:  ...
  */
 
