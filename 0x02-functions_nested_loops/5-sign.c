@@ -2,17 +2,16 @@
  * File: 5-sign.c
  * Auth: Saif Eddine belhaj
  *
- 
+ */
 
- #include "main.h"
+#include "main.h"
 
 /**
  * print_sign - Prints the sign of a number.
- *
- * This function takes an integer as an argument and prints the sign of the integer.
- *
- * Return: 1 if the number is positive, 0 if the number is zero,
- * -1 if the number is negative.
+ * @n: number being tested
+ * Return: 1 if the number is > than zero,
+ * 0 if the number is zero,
+ * -1 if the number is < than zero.
  */
 
 int print_sign(int n)
