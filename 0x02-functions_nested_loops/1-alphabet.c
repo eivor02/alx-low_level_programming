@@ -7,8 +7,8 @@
 #include "main.h"
 
 /**
- *print_alphabet - print "a to z" in lowercase, followed by a new line. 
- *Return: always success
+ * print_alphabet - print "a to z" in lowercase,followed by a new line. 
+ * Return: always success
  */
 
 void print_alphabet(void)
