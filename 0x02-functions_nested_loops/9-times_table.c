@@ -15,25 +15,25 @@ void times_table(void)
 {
 	int s, b;
 
-	s= 0;
-	while (s<= 9)
+	s = 0;
+	while (s <= 9)
 	{
 		b = 0;
 		while (b <= 9)
 		{
-			if ((s* b) > 9)
+			if ((s * b) > 9)
 			{
-				_putchar(((s* b) / 10) + '0');
-				_putchar(((s* b) % 10) + '0');
+				_putchar(((s * b) / 10) + '0');
+				_putchar(((s * b) % 10) + '0');
 			}
 			else if (b != 0)
 			{
 				_putchar(' ');
-				_putchar((s* b) + '0');
+				_putchar((s * b) + '0');
 			}
 			else
 			{
-				_putchar((s* b) + '0');
+				_putchar((s * b) + '0');
 			}
 			if (b != 9)
 			{
