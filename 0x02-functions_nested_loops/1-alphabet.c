@@ -8,6 +8,7 @@
 
 /**
  * print_alphabet - prints the alphabet in lowercase, followed by a new line.
+ * using _putchar.
  * Return: Always 0.
  */
 
