@@ -8,6 +8,7 @@
 
 /**
  * Return: 1 if the number is > than zero,
+ * @n: The number of which the sign will be printed.
  * 0 if the number is zero,
  * -1 if the number is < than zero.
  */
