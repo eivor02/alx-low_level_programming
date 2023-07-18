@@ -2,23 +2,22 @@
  * File: 5-sign.c
  * Auth: Saif Eddine belhaj
  *
- */
+ 
 
-#include "main.h"
+ #include "main.h"
 
 /**
- * print_sign - check if n is +, - or 0
- * Return: 1 if the number is > than zero,
- * @n: The number of which the sign will be printed.
+ * print_sign - Prints the sign of a number.
  *
- * 0 if the number is zero,
- * -1 if the number is < than zero.
+ * This function takes an integer as an argument and prints the sign of the integer.
+ *
+ * Return: 1 if the number is positive, 0 if the number is zero,
+ * -1 if the number is negative.
  */
 
 int print_sign(int n)
-
 {
-i	if (n > 0)
+	if (n > 0)
 	{
 		_putchar(43);
 		return (1);
@@ -34,3 +33,4 @@ i	if (n > 0)
 		return (0);
 	}
 }
+
