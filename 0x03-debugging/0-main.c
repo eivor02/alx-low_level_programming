@@ -1,9 +1,3 @@
-/*
- * File: 0-main.c
- * Auth: Saif Eddine belhaj
- *
- */
-
 #include "main.h"
 
 /**
