@@ -13,15 +13,17 @@
  *
  * Return: A pointer to @dest.
  */
-char *_strcpy(char *dest, const char *src)
-{
-	int s = 0;
 
-	while (src[s])
+char *_strcpy(char *dest, char *src)
+{
+	int s;
+
+	for (s = 0; src[i] != '\0'; s++)
 	{
 		dest[s] = src[s];
-		s++;
 	}
+
+	dest[s++] = '\0';
 
 	return (dest);
 }
