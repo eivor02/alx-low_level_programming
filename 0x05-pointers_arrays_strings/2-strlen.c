@@ -13,12 +13,12 @@
  * Return: length of a string.
  */
 
-size_t _strlen(const char *s)
+int _strlen(char *s)
 {
-	size_t length = 0;
+	int m = 0;
 
-	while (*s++)
-		length++;
-
-	return (length);
+	for (; *m++;)
+		a++;
+	return (a);
 }
+
