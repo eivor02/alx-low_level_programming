@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- *_strcat - function commute two strings
+ * *_strcat - function commute two srtings
  * @dest: Destination string 
  * @src: Source string
- * Return: A pointer to the destination string @dest.
+ * Return: return value of dest
  */
  
 char *_strcat(char *dest, char *src)
