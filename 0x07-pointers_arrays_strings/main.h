@@ -1,11 +1,15 @@
-0x07. C - Even more pointers, arrays and strings Tasks 0. memset Write a function that fills memory with a constant byte.
+#ifndef _MAIN_H_
+#define _MAIN_H_
 
-memcpy Write a function that copies memory area.
-strchr Write a function that locates a character in a string.
-strspn Write a function that gets the length of a prefix substring.
-strpbrk Write a function that searches a string for any of a set of bytes.
-strstr Write a function that locates a substring.
-Chess is mental torture Write a function that prints the chessboard.
-The line of life is a ragged diagonal between duty and desire Write a function that prints the sum of the two diagonals of a square matrix of integers.
-Double pointer, double fun Write a function that sets the value of a pointer to a char.
-My primary goal of hacking was the intellectual curiosity, the seduction of adventure Create a file that contains the password for the crackme2 executable.
+char *_memset(char *s, char b, unsigned int n);
+char *_memcpy(char *dest, char *src, unsigned int n);
+char *_strchr(char *s, char c);
+unsigned int _strspn(char *s, char *accept);
+char *_strpbrk(char *s, char *accept);
+char *_strstr(char *haystack, char *needle);
+int _putchar(char);
+void print_chessboard(char (*a)[8]);
+void print_diagsums(int *a, int size);
+void set_string(char **s, char *to);
+
+#endif
