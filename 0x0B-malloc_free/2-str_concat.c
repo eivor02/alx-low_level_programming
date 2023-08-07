@@ -1,37 +1,42 @@
-char *str_concat(char *s1, char *s2) {
-  // Check if either string is NULL
-  if (s1 == NULL) {
-    s1 = "";
-  }
-  if (s2 == NULL) {
-    s2 = "";
-  }
+#include "main.h"
+#include <stdlib.h>
 
-  // Get the lengths of the two strings
-  int len1 = strlen(s1);
-  int len2 = strlen(s2);
+/**
+ * str_concat - concatenates two strings.
+ * @s1: first string.
+ * @s2: second string.
+ *
+ * Return: pointer to the concatenated string.
+ */
+char *str_concat(char *s1, char *s2)
+{
+	char *concatenated;
+	unsigned int s1_len = 0, s2_len = 0, i, j;
 
-  // Allocate memory for the new string
-  char *strout = malloc(sizeof(char) * (len1 + len2 + 1));
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
 
-  // If the allocation failed, return NULL
-  if (strout == NULL) {
-    return NULL;
-  }
+	while (s1[s1_len] != '\0')
+		s1_len++;
 
-  // Copy the first string into the new string
-  for (int i = 0; i < len1; i++) {
-    strout[i] = s1[i];
-  }
+	while (s2[s2_len] != '\0')
+		s2_len++;
 
-  // Copy the second string into the new string
-  for (int i = 0; i < len2; i++) {
-    strout[i + len1] = s2[i];
-  }
+	concatenated = malloc(sizeof(char) * (s1_len + s2_len + 1));
 
-  // Add a NULL terminator to the end of the new string
-  strout[len1 + len2] = '\0';
+	if (concatenated == NULL)
+	{
+		free(concatenated);
+		return (NULL);
+	}
 
-  // Return the new string
-  return strout;
+	for (i = 0; i < s1_len; i++)
+		concatenated[i] = s1[i];
+
+	for (j = 0; j <= s2_len; j++, i++)
+		concatenated[i] = s2[j];
+
+	return (concatenated);
 }
