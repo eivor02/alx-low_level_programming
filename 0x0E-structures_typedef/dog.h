@@ -1,31 +1,48 @@
 #ifndef DOG_H
 #define DOG_H
 
-typedef struct dog {
+/**
+ * Typedef for struct dog.
+ */
+typedef struct dog dog_t;
+
+/**
+ * Struct that stores some information of a dog.
+ *
+ * @param name The name of the dog.
+ * @param age The age of the dog.
+ * @param owner The owner of the dog.
+ */
+struct dog {
   char *name;
   float age;
   char *owner;
-} dog_t;
+};
 
-dog_t *new_dog(char *name, float age, char *owner) {
-  dog_t *d = malloc(sizeof(dog_t));
-  d->name = name;
-  d->age = age;
-  d->owner = owner;
-  return d;
-}
+/**
+ * Create a new dog struct.
+ *
+ * @param name The name of the dog.
+ * @param age The age of the dog.
+ * @param owner The owner of the dog.
+ *
+ * @return A pointer to the new dog struct.
+ */
+dog_t *new_dog(char *name, float age, char *owner);
 
-void free_dog(dog_t *d) {
-  free(d->name);
-  free(d->owner);
-  free(d);
-}
+/**
+ * Free the memory allocated for a dog struct.
+ *
+ * @param d The dog struct to free.
+ */
+void free_dog(dog_t *d);
 
-void print_dog(dog_t *d) {
-  printf("Name: %s\n", d->name);
-  printf("Age: %.2f\n", d->age);
-  printf("Owner: %s\n", d->owner);
-}
+/**
+ * Print the information about a dog.
+ *
+ * @param d The dog to print.
+ */
+void print_dog(dog_t *d);
 
 #endif
 
