@@ -1,3 +1,12 @@
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct dog {
+  char *name;
+  float age;
+  char *owner;
+} dog_t;
+
 /**
  * Initialize a dog struct.
  *
@@ -12,9 +21,35 @@ void init_dog(dog_t *d, char *name, float age, char *owner) {
     return;
   }
 
-  // Set the dog's name, age, and owner.
-  d->name = name;
-  d->age = age;
-  d->owner = owner;
+  // Check that the name, age, and owner pointers are not NULL.
+  if (name == NULL || age == NULL || owner == NULL) {
+    free(d);
+    return;
+  }
+
+  // Allocate memory for the name, age, and owner strings.
+  d->name = malloc(strlen(name) + 1);
+  d->age = malloc(sizeof(float));
+  d->owner = malloc(strlen(owner) + 1);
+
+  // Copy the name, age, and owner strings into the dog struct.
+  strcpy(d->name, name);
+  *d->age = age;
+  strcpy(d->owner, owner);
+}
+
+/**
+ * Free a dog struct.
+ *
+ * @param d The dog struct to free.
+ */
+void free_dog(dog_t *d) {
+  // Free the memory allocated for the name, age, and owner strings.
+  free(d->name);
+  free(d->age);
+  free(d->owner);
+
+  // Free the memory allocated for the dog struct.
+  free(d);
 }
 
