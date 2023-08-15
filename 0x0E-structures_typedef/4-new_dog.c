@@ -2,50 +2,52 @@
 #include <stdlib.h>
 
 /**
- * Create a new dog struct.
+ * new_dog - Creates a new dog.
+ * @name: Name of the dog.
+ * @age: Age of the dog.
+ * @owner: Owner of the dog.
  *
- * @param name The name of the dog.
- * @param age The age of the dog.
- * @param owner The owner of the dog.
- *
- * @return A pointer to the new dog struct, or NULL if an error occurred.
+ * Return: Pointer to the newly created struct dog.
+ *         If fails, returns NULL.
  */
-dog_t *new_dog(char *name, float age, char *owner) {
-  // Allocate memory for the new dog struct.
-  dog_t *p_dog = malloc(sizeof(dog_t));
-  if (p_dog == NULL) {
-    return NULL;
-  }
+dog_t *new_dog(char *name, float age, char *owner)
+{
+	dog_t *p_dog;
+	int i, lname, lowner;
 
-  // Check that the name and owner strings are not NULL.
-  if (name == NULL || owner == NULL) {
-    // The name and/or owner strings are NULL, so free the dog struct and return NULL.
-    free(p_dog);
-    return NULL;
-  }
+	p_dog = malloc(sizeof(*p_dog));
+	if (p_dog == NULL || name == NULL || owner == NULL)
+	{
+		free(p_dog);
+		return NULL;
+	}
 
-  // Get the lengths of the name and owner strings.
-  int lname = strlen(name);
-  int lowner = strlen(owner);
+	for (lname = 0; name[lname]; lname++)
+		;
 
-  // Allocate memory for the name and owner strings.
-  p_dog->name = malloc(lname + 1);
-  p_dog->owner = malloc(lowner + 1);
-  if (p_dog->name == NULL || p_dog->owner == NULL) {
-    // One or both of the strings could not be allocated, so free the dog struct and return NULL.
-    free(p_dog->owner);
-    free(p_dog->name);
-    free(p_dog);
-    return NULL;
-  }
+	for (lowner = 0; owner[lowner]; lowner++)
+		;
 
-  // Copy the name and owner strings into the dog struct.
-  strncpy(p_dog->name, name, lname + 1);
-  strncpy(p_dog->owner, owner, lowner + 1);
+	p_dog->name = malloc(lname + 1);
+	p_dog->owner = malloc(lowner + 1);
 
-  // Set the dog's age.
-  p_dog->age = age;
+	if (p_dog->name == NULL || p_dog->owner == NULL)
+	{
+		free(p_dog->owner);
+		free(p_dog->name);
+		free(p_dog);
+		return NULL;
+	}
 
-  // Return the new dog struct.
-  return p_dog;
+	for (i = 0; i < lname; i++)
+		p_dog->name[i] = name[i];
+	p_dog->name[i] = '\0';
+
+	p_dog->age = age;
+
+	for (i = 0; i < lowner; i++)
+		p_dog->owner[i] = owner[i];
+	p_dog->owner[i] = '\0';
+
+	return p_dog;
 }
