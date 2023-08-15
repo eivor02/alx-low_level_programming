@@ -1,32 +1,57 @@
-#ifndef DOG_H
-#define DOG_H
+#ifndef _DOG_H_
+#define _DOG_H_
 
 /**
- * A dog struct.
+ * struct dog - Structure that stores information about a dog.
+ * @name: Pointer to the name of the dog.
+ * @age: Age of the dog.
+ * @owner: Pointer to the owner of the dog.
+ *
+ * Description: This structure represents a dog and stores its name,
+ * age, and the name of its owner.
  */
-struct dog {
-  char *name;
-  float age;
-  char *owner;
-};
+typedef struct dog
+{
+	char *name;
+	float age;
+	char *owner;
+} dog_t;
 
 /**
- * Creates a new dog struct.
+ * init_dog - Initializes a dog structure with the provided values.
+ * @d: Pointer to the struct dog to be initialized.
+ * @name: Pointer to the name string.
+ * @age: Age of the dog.
+ * @owner: Pointer to the owner string.
  *
- * @param name The name of the dog.
- * @param age The age of the dog.
- * @param owner The owner of the dog.
+ * Return: void
+ */
+void init_dog(struct dog *d, char *name, float age, char *owner);
+
+/**
+ * print_dog - Prints the information about a dog.
+ * @d: Pointer to the struct dog to be printed.
  *
- * @return A pointer to the new dog struct, or NULL if an error occurred.
+ * Return: void
+ */
+void print_dog(struct dog *d);
+
+/**
+ * new_dog - Creates a new dog structure and initializes it with the provided values.
+ * @name: Pointer to the name string.
+ * @age: Age of the dog.
+ * @owner: Pointer to the owner string.
+ *
+ * Return: Pointer to the newly created dog structure.
  */
 dog_t *new_dog(char *name, float age, char *owner);
 
 /**
- * Frees a dog struct.
+ * free_dog - Frees the memory allocated for a dog structure.
+ * @d: Pointer to the dog structure to be freed.
  *
- * @param d The dog struct to free.
+ * Return: void
  */
 void free_dog(dog_t *d);
 
-#endif
-
+#endif /* _DOG_H_ */
