@@ -8,13 +8,12 @@
  *
  * @return No return value.
  */
+
 void array_iterator(int *array, size_t size, void (*action)(int))
 {
-    // Avoid using magic numbers and use a named constant instead
-    static const size_t MAX_ITERATIONS = size;
-
-    // Use a for loop instead of a while loop
-    for (size_t i = 0; i < MAX_ITERATIONS; i++) {
-        action(array[i]);
+    if (array != NULL && action != NULL) {
+        for (size_t i = 0; i < size; i++) {
+            action(array[i]);
+        }
     }
 }
