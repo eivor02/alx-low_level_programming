@@ -1,61 +1,45 @@
-#include "variadic_functions.h"
+#include <stdio.h>
 
 /**
- * print_all - Prints any combination of characters, integers, floats, and strings.
- * @format: A list of types of arguments passed to the function.
+ * print_all - prints anything.
+ * @format: a list of types of arguments passed to the function.
+ * @args: arguments to be printed.
  *
- * Return: No return.
+ * Return: no return.
  */
-void print_all(const char * const format, ...)
-{
-	va_list valist;
-	unsigned int i = 0;
-	char *str;
-	const char valid_types[] = "cifs";
+void print_all(const char * const format, va_list args) {
+  int i = 0;
+  /* Iterate over the format string */
+  while (format[i]) {
+    switch (format[i]) {
+      case 'c':
+        /* Print a character */
+        printf("%c", va_arg(args, int));
+        break;
+      case 'i':
+        /* Print an integer */
+        printf("%d", va_arg(args, int));
+        break;
+      case 'f':
+        /* Print a floating-point number */
+        printf("%f", va_arg(args, double));
+        break;
+      case 's':
+        /* Print a string */
+        printf("%s", va_arg(args, char *));
+        break;
+    }
+    i++;
+    /* Print a comma if there are more arguments to print */
+    if (format[i]) {
+      printf(", ");
+    }
+  }
+  printf("\n");
+}
 
-	va_start(valist, format);
-
-	while (format && format[i])
-	{
-		int found_valid_type = 0;
-
-		for (unsigned int j = 0; valid_types[j]; j++)
-		{
-			if (format[i] == valid_types[j])
-			{
-				if (found_valid_type && format[i - 1])
-					printf(", ");
-				found_valid_type = 1;
-				break;
-			}
-		}
-
-		if (found_valid_type)
-		{
-			switch (format[i])
-			{
-			case 'c':
-				printf("%c", va_arg(valist, int));
-				break;
-			case 'i':
-				printf("%d", va_arg(valist, int));
-				break;
-			case 'f':
-				printf("%f", va_arg(valist, double));
-				break;
-			case 's':
-				str = va_arg(valist, char *);
-				if (str == NULL)
-					printf("(nil)");
-				else
-					printf("%s", str);
-				break;
-			}
-		}
-
-		i++;
-	}
-
-	printf("\n");
-	va_end(valist);
+int main() {
+  /* Print a character, an integer, a floating-point number, and a string */
+  print_all("cis", 'a', 123, 3.14159, "hello");
+  return 0;
 }
