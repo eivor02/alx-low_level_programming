@@ -1,51 +1,44 @@
-#include "variadic_functions.h"
+#include <stdarg.h>
+#include <stdio.h>
 
-/**
- * print_all - prints anything.
- * @format: a list of types of arguments passed to the function.
- *
- * Return: no return.
- */
-void print_all(const char * const format, ...)
-{
-	va_list valist;
-	unsigned int i = 0, j, c = 0;
-	char *str;
-	const char t_arg[] = "cifs";
+void print_all(const char *format, ...) {
+    // Create a va_list to store the arguments
+    va_list valist;
 
-	va_start(valist, format);
-	while (format && format[i])
-	{
-		j = 0;
-		while (t_arg[j])
-		{
-			if (format[i] == t_arg[j] && c)
-			{
-				printf(", ");
-				break;
-			} j++;
-		}
-		switch (format[i])
-		{
-		case 'c':
-			printf("%c", va_arg(valist, int)), c = 1;
-			break;
-		case 'i':
-			printf("%d", va_arg(valist, int)), c = 1;
-			break;
-		case 'f':
-			printf("%f", va_arg(valist, double)), c = 1;
-			break;
-		case 's':
-			str = va_arg(valist, char *), c = 1;
-			if (!str)
-			{
-				printf("(nil)");
-				break;
-			}
-			printf("%s", str);
-			break;
-		} i++;
-	}
-	printf("\n"), va_end(valist);
+    // Initialize the va_list with the format string and arguments
+    va_start(valist, format);
+
+    // Iterate over the format string
+    for (size_t i = 0; i < strlen(format); i++) {
+        // Get the current character and its type
+        char c = format[i];
+        int type = _Generic(c, char: 1, int: 2, double: 3, const char *: 4);
+
+        // Handle the different types of arguments
+        switch (type) {
+            case 1:
+                // Print a character argument
+                printf("%c", va_arg(valist, int));
+                break;
+            case 2:
+                // Print an integer argument
+                printf("%d", va_arg(valist, int));
+                break;
+            case 3:
+                // Print a double argument
+                printf("%f", va_arg(valist, double));
+                break;
+            case 4:
+                // Print a string argument
+                const char *str = va_arg(valist, const char *);
+                printf("%s", str);
+                break;
+        }
+    }
+
+    // Print a newline at the end
+    printf("\n");
+
+    // Clean up the va_list
+    va_end(valist);
 }
