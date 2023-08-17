@@ -23,7 +23,7 @@ void print_all(const char * const format, ...)
 		{
 			if (format[i] == valid_types[j])
 			{
-				if (i > 0 && format[i - 1])
+				if (found_valid_type && format[i - 1])
 					printf(", ");
 				found_valid_type = 1;
 				break;
@@ -45,7 +45,7 @@ void print_all(const char * const format, ...)
 				break;
 			case 's':
 				str = va_arg(valist, char *);
-				if (!str)
+				if (str == NULL)
 					printf("(nil)");
 				else
 					printf("%s", str);
