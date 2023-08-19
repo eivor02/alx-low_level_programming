@@ -1,5 +1,6 @@
 #include "3-calc.h"
 
+
 /**
  * main - Entry point of the program
  * @argc: The number of command-line arguments
