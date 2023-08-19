@@ -1,25 +1,24 @@
 #include "variadic_functions.h"
-#include <stdarg.h>
 #include <stdio.h>
+#include <stdarg.h>
 
 /**
- * print_all - Prints arguments based on the format string.
- * @format: A string of characters representing the argument types.
- * @...: A variable number of arguments to be printed.
+ * print_all - Prints a formatted list of arguments
+ * @format: The format string specifying the types of arguments
  *
- * Description: The format string specifies the types of arguments
- *              to be printed: 'c' for char, 'i' for integer,
- *              'f' for float, and 's' for char*.
- *              If a string argument is NULL, it prints (nil) instead.
- *              Any other character in the format string is ignored.
- *              Prints a new line at the end.
+ * Description: This function takes a format string and a variable number
+ *              of arguments of different types (char, int, float, char*),
+ *              and prints them accordingly. The format string consists of
+ *              characters representing the argument types: 'c' for char,
+ *              'i' for int, 'f' for float, and 's' for char*. If a string
+ *              argument is NULL, it is printed as "(nil)". The arguments
+ *              are separated by commas, and a newline is printed at the end.
  */
 void print_all(const char * const format, ...)
 {
 	va_list args;
 	unsigned int i = 0;
 	char *separator = "";
-	char *str;
 
 	va_start(args, format);
 
@@ -42,7 +41,7 @@ void print_all(const char * const format, ...)
 		}
 		else if (format[i] == 's')
 		{
-			str = va_arg(args, char *);
+			char *str = va_arg(args, char *);
 			if (str == NULL)
 				str = "(nil)";
 			printf("%s%s", separator, str);
