@@ -1,92 +1,55 @@
-#include "variadic_functions.h"
-#include <stdio.h>
 #include <stdarg.h>
+#include <stdio.h>
 
 /**
- * print_char - Prints a char.
- * @arg: A va_list containing the character argument.
- */
-void print_char(va_list arg)
-{
-	char letter = va_arg(arg, int);
-	printf("%c", letter);
-}
-
-/**
- * print_int - Prints an int.
- * @arg: A va_list containing the integer argument.
- */
-void print_int(va_list arg)
-{
-	int num = va_arg(arg, int);
-	printf("%d", num);
-}
-
-/**
- * print_float - Prints a float.
- * @arg: A va_list containing the float argument.
- */
-void print_float(va_list arg)
-{
-	float num = va_arg(arg, double);
-	printf("%f", num);
-}
-
-/**
- * print_string - Prints a string.
- * @arg: A va_list containing the string argument.
- */
-void print_string(va_list arg)
-{
-	char *str = va_arg(arg, char *);
-
-	if (str == NULL)
-		printf("(nil)");
-	else
-		printf("%s", str);
-}
-
-/**
- * print_all - Prints anything, followed by a new line.
+ * print_all - Prints arguments based on the format string.
  * @format: A string of characters representing the argument types.
  * @...: A variable number of arguments to be printed.
  *
- * Description: Any argument not of type char, int, float,
- *              or char * is ignored.
- *              If a string argument is NULL, (nil) is printed instead.
+ * Description: The format string specifies the types of arguments
+ *              to be printed: 'c' for char, 'i' for integer,
+ *              'f' for float, and 's' for char*.
+ *              If a string argument is NULL, it prints (nil) instead.
+ *              Any other character in the format string is ignored.
+ *              Prints a new line at the end.
  */
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	unsigned int i = 0, j = 0;
+	unsigned int i = 0;
 	char *separator = "";
-	printer_t funcs[] = {
-		{"c", print_char},
-		{"i", print_int},
-		{"f", print_float},
-		{"s", print_string}
-	};
+	char *str;
 
 	va_start(args, format);
 
 	while (format && format[i])
 	{
-		j = 0;
-
-		while (j < 4 && format[i] != *funcs[j].symbol)
-			j++;
-
-		if (j < 4)
+		if (format[i] == 'c')
 		{
-			printf("%s", separator);
-			funcs[j].print(args);
+			printf("%s%c", separator, va_arg(args, int));
 			separator = ", ";
 		}
-
+		else if (format[i] == 'i')
+		{
+			printf("%s%d", separator, va_arg(args, int));
+			separator = ", ";
+		}
+		else if (format[i] == 'f')
+		{
+			printf("%s%f", separator, va_arg(args, double));
+			separator = ", ";
+		}
+		else if (format[i] == 's')
+		{
+			str = va_arg(args, char *);
+			if (str == NULL)
+				str = "(nil)";
+			printf("%s%s", separator, str);
+			separator = ", ";
+		}
 		i++;
 	}
 
 	printf("\n");
-
 	va_end(args);
 }
