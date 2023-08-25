@@ -8,5 +8,5 @@
 void __attribute__ ((constructor)) bmain(void)
 {
 	printf("You're beat! and yet, you must allow");
-	printf(",\nI bear my house upon my back!\n");
+	printf(",\nI bore my house upon my back!\n");
 }
