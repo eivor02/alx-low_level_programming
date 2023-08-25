@@ -1,20 +1,26 @@
-SECTION .data
-msg:    db "Hello, Holberton", 0
-fmt:    db "%s", 10, 0
+extern printf    ; The C function, to be called
 
-SECTION .text
-extern printf
-global main
+section .data    ; Data section, initialized variables
+msg:    db "Hello, Holberton", 0 ; C string needs a null terminator
+fmt:    db "%s", 10, 0          ; The printf format, including newline and null terminator
+
+section .text    ; Code section
+
+global main      ; The standard GCC entry point
 
 ; Function: main
 ; ----------------------
 ; The main function that prints a message using printf.
 ; Returns: 0
-main:
-    mov esi, msg    ; Point ESI to the message string
-    mov edi, fmt    ; Point EDI to the format string
-    mov eax, 0      ; Clear EAX register
-    call printf     ; Call the printf function
+main:             ; Program label for the entry point
+    push rbp      ; Set up stack frame, must be aligned
 
-    mov eax, 0      ; Set EAX to 0 (return value)
-    ret             ; Return from the main function
+    mov rdi, fmt  ; First argument: format string
+    mov rsi, msg  ; Second argument: message string
+    xor rax, rax  ; Clear RAX register (optional: can also use mov rax, 0)
+    call printf   ; Call the printf function
+
+    pop rbp       ; Restore stack
+
+    mov rax, 0    ; Set RAX to 0 (return value)
+    ret           ; Return
