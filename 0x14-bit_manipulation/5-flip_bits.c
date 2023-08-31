@@ -2,22 +2,22 @@
 
 /**
  * flip_bits - Returns the number of bits needed to flip to get from one number to another.
- * @num1: Number one.
- * @num2: Number two.
+ * @n: Number one.
+ * @m: Number two.
  *
  * Return: Number of bits needed to flip.
  */
-unsigned int flip_bits(unsigned long int num1, unsigned long int num2)
+unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned int numBits = 0;
+	unsigned int nbits = 0;
 
-	while (num1 || num2)
+	while (n || m)
 	{
-		if ((num1 & 1) != (num2 & 1))
-			numBits++;
-		num1 >>= 1;
-		num2 >>= 1;
+		if ((n & 1) != (m & 1))
+			nbits++;
+		n >>= 1;
+		m >>= 1;
 	}
 
-	return (numBits);
-}}
+	return (nbits);
+}
