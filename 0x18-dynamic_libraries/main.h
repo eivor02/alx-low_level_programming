@@ -1,7 +1,5 @@
-#ifndef HOLB_H
-#define HOLB_H
-
-#include <stdlib.h>
+#ifndef _holberton_
+#define _holberton_
 
 int _putchar(char c);
 int _islower(int c);
